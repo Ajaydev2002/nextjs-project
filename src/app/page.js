@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 export default function Home() {
 
   const [inputVal, setInputVal] = useState("");
+  
   const { push } = useRouter();
 
   const handlesubmit = () => {
@@ -20,8 +21,9 @@ export default function Home() {
       justifyContent: 'center',
       alignItems: 'center',
       minHeight: '90vh',
+      backgroundColor:"#f0f0f0"
     }}>
-      <Box sx={{ display: 'flex', flexDirection: "column", alignItems: "center", gap: "20px" }}>
+      <Box sx={{ display: 'flex', flexDirection: "column", alignItems: "center", gap: "20px",border:"1px solid rgb(177, 168, 168)",padding:"30px",borderRadius:"7px",backgroundColor:"#fff",boxShadow: "1px 1px 4px 2px rgb(203, 197, 197)" }}>
         <Box>
           <Typography variant="h4" sx={{ fontSize: "30px", fontWeight: "500" }}>Enter your Name</Typography>
         </Box>

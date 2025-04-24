@@ -19,7 +19,7 @@ const Navigation = [
         title: 'MENU'
     },
     {
-        segment: '/Dashboard',
+        segment: "/dashboard",
         title: 'Dashboard',
         icon: <DashboardIcon style={{fontSize: 18}}/>
     },
@@ -28,15 +28,17 @@ const Navigation = [
         title: 'PAGES'
     },
     {
+        segment: "/dashboard",
         title: 'Authentication',
         icon: <PersonIcon style={{fontSize: 18}}/>,
     },
     {
+        segment: "/dashboard",
         title: 'Pages',
         icon: <PagesIcon style={{fontSize: 18}}/>,
     },
     {
-        segment: '/',
+        segment: "/dashboard",
         title: 'Widgets',
         icon: <WidgetsIcon style={{fontSize: 18}}/>
     },
@@ -73,22 +75,27 @@ const Navigation = [
         icon: <DashboardIcon style={{fontSize: 18}}/>
     },
     {
+        segment: '/',
         title: 'Components',
         icon: <CategoryIcon style={{fontSize: 18}}/>,
     },
     {
+        segment: '/',
         title: 'Inputs',
         icon: <InputIcon style={{fontSize: 18}}/>,
     },
     {
+        segment: '/',
         title: 'Data Display',
         icon: <TableChartIcon style={{fontSize: 18}}/>,
     },
     {
+        segment: '/',
         title: 'Feedback',
         icon: <FeedbackIcon style={{fontSize: 18}}/>,
     },
     {
+        segment: '/',
         title: 'Surfaces',
         icon: <WebAssetIcon style={{fontSize: 18}}/>,
     },

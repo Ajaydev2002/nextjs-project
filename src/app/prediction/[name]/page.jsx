@@ -1,57 +1,40 @@
-"use client"
-import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
-import axios from "axios";
+import React from "react";
 
+const getPredicteAge = async (name) => {
+    const response = await fetch(`https://api.agify.io?name=${name}`);
+    return response.json();
+}
 
-const personalInfo = ({ params }) => {
+const getPredictedGender = async (name) => {
+    const response = await fetch(`https://api.genderize.io?name=${name}`);
+    return response.json();
+}
 
-    const { name } = params; 
+const getPredictedNationality = async (name) => {
+    const response = await fetch(`https://api.nationalize.io?name=${name}`);
+    return response.json();
+}
 
-    const [ageData, setAgeData] = useState();
-    const [genderData, setGenderData] = useState();
-    const [nationalityData, setNationalityData] = useState();
+const name = async ({ params }) => {
 
-    useEffect(() => {
-        axios.get(`https://api.agify.io?name=${name}`)
-            .then((response) => {
-                setAgeData(response.data);
-            })
-            .catch((error) => {
-                console.error("Error fetching data:", error.message);
-            })
-    },[name]);
+    const name = params.name;
 
-    useEffect(() => {
-        axios.get(`https://api.genderize.io?name=${name}`)
-            .then((response) => {
-                setGenderData(response.data);
-            })
-            .catch((error) => {
-                console.error("Error fetching data:", error.message);
-            })
-    },[name]);
-
-    useEffect(() => {
-        axios.get(`https://api.nationalize.io?name=${name}`)
-            .then((response) => {
-                setNationalityData(response.data);
-            })
-            .catch((error) => {
-                console.error("Error fetching data:", error.message);
-            })
-    },[name]);
-
+    const ageData = await getPredicteAge(name);
+    const genderData = await getPredictedGender(name);
+    const nationalityData = await getPredictedNationality(name);
 
     return (
-        <Box sx={{marginLeft:"14%"}}>
-            <Typography variant="h5">Personal Info</Typography>
-            <Typography variant="h6" sx={{fontSize:"17px"}}>Name : {name}</Typography>
-            <Typography variant="h6" sx={{fontSize:"17px"}}>Age  : {ageData?.age}</Typography>
-            <Typography variant="h6" sx={{fontSize:"17px"}}>Gender  : {genderData?.gender}</Typography>
-            <Typography variant="h6" sx={{fontSize:"17px"}}>Nationality  : {nationalityData?.country[0]?.country_id}</Typography>
-        </Box>
+            <Box sx={{ marginLeft: "14%" }}>
+                <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                    <Typography variant="h5" sx={{ textDecoration: "underline" }}>Personal Info</Typography>
+                    <Typography variant="h6" sx={{ fontSize: "14px" }}>Name : {params.name}</Typography>
+                    <Typography variant="h6" sx={{ fontSize: "14px" }}>Age  : {ageData?.age ? ageData?.age : 0}</Typography>
+                    <Typography variant="h6" sx={{ fontSize: "14px" }}>Gender  : {genderData?.gender ? genderData?.gender : ""}</Typography>
+                    <Typography variant="h6" sx={{ fontSize: "14px" }}>Nationality  : {nationalityData?.country?.length > 0 ? nationalityData?.country[0]?.country_id : ""}</Typography>
+                </Box>
+            </Box>
     )
 }
 
-export default personalInfo;
+export default name;
