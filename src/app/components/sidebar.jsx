@@ -2,14 +2,10 @@
 import { Box } from "@mui/material";
 import React from "react";
 import Navigation from "../consts/sidenav";
-import clsx from "clsx";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 
 const Sidebar = ({ children }) => {
-
-
 
     return (
         <Box sx={{ position: "absolute", marginLeft: "7px", borderRight: "1px solid rgb(197, 192, 192)", height: "86.5%", paddingRight: "40px", width: "13%", backgroundColor: "#fff" }}>
@@ -21,7 +17,7 @@ const Sidebar = ({ children }) => {
                 ) : (
                     <Box key={index} sx={{ paddingBlock: "5px" }}>
                         <Link href={item.segment}>
-                            <Box sx={{display: "flex", alignItems: "center", gap: "10px"}}>
+                            <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
                                 <Box >{item.icon}</Box>
                                 <Box >{item.title}</Box>
                             </Box>
@@ -29,7 +25,9 @@ const Sidebar = ({ children }) => {
                     </Box>
                 )
             ))}
-            {children}
+            <Box>
+                {children}
+            </Box>
         </Box>
     )
 }

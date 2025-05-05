@@ -13,7 +13,7 @@ const Header = () => {
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "40px" }}>
                 <Link href="/"> <Typography variant="body2" sx={{ fontSize: "13px" }}>Home</Typography> </Link>
-                <Link href="/aboutus"> <Typography variant="body2" sx={{ fontSize: "13px" }}>About Us</Typography> </Link>
+                <Link href="/"> <Typography variant="body2" sx={{ fontSize: "13px" }}>About Us</Typography> </Link>
                 <Typography variant="body2" sx={{ fontSize: "13px" }}>Catalog</Typography>
                 <Typography variant="body2" sx={{ fontSize: "13px" }}>Price</Typography>
                 <Typography variant="body2" sx={{ fontSize: "13px" }}>Help</Typography>

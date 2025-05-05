@@ -19,7 +19,7 @@ const Navigation = [
         title: 'MENU'
     },
     {
-        segment: "/dashboard",
+        segment: "/",
         title: 'Dashboard',
         icon: <DashboardIcon style={{fontSize: 18}}/>
     },
@@ -28,13 +28,13 @@ const Navigation = [
         title: 'PAGES'
     },
     {
-        segment: "/dashboard",
+        segment: "/login",
         title: 'Authentication',
         icon: <PersonIcon style={{fontSize: 18}}/>,
     },
     {
-        segment: "/dashboard",
-        title: 'Pages',
+        segment: "/slug",
+        title: 'Slug',
         icon: <PagesIcon style={{fontSize: 18}}/>,
     },
     {
